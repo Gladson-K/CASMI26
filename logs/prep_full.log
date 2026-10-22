@@ -1,0 +1,36 @@
+16:53:51 dataset 275518 structures | fold0 (val): 55110
+16:53:51 labels loaded from cache outputs/smiles_detector_full/labels.npz
+16:53:51 resuming embeddings from 76928/275518
+Loading weights:   0%|          | 0/197 [00:00<?, ?it/s]Loading weights:   9%|▊         | 17/197 [00:00<00:01, 151.55it/s]Loading weights:  17%|█▋        | 33/197 [00:00<00:01, 117.58it/s]Loading weights: 100%|██████████| 197/197 [00:00<00:00, 619.02it/s]
+[transformers] [1mRobertaModel LOAD REPORT[0m from: DeepChem/ChemBERTa-100M-MLM
+Key                       | Status     | 
+--------------------------+------------+-
+lm_head.layer_norm.weight | UNEXPECTED | 
+lm_head.layer_norm.bias   | UNEXPECTED | 
+lm_head.dense.weight      | UNEXPECTED | 
+lm_head.dense.bias        | UNEXPECTED | 
+lm_head.bias              | UNEXPECTED | 
+pooler.dense.weight       | MISSING    | 
+pooler.dense.bias         | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+17:16:00   89728/275518 1282s eta 310min
+17:36:12   102528/275518 2494s eta 281min
+17:46:15   115328/275518 3097s eta 215min
+17:55:30   128128/275518 3652s eta 175min
+18:04:38   140928/275518 4200s eta 147min
+18:13:50   153728/275518 4752s eta 126min
+18:22:55   166528/275518 5297s eta 107min
+18:32:15   179328/275518 5857s eta 92min
+18:52:01   192128/275518 7043s eta 85min
+19:17:53   204928/275518 8595s eta 79min
+19:44:52   217728/275518 10214s eta 70min
+20:11:00   230528/275518 11782s eta 58min
+20:32:07   243328/275518 13049s eta 42min
+20:50:19   256128/275518 14141s eta 26min
+21:10:10   268928/275518 15332s eta 9min
+21:20:24 embeddings done (275518, 768) 15946s
+21:20:25 train/val: 220408 / 55110 | classes: 64
+21:20:25 PREP DONE

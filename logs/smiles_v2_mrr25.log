@@ -1,0 +1,53 @@
+13:52:54 dataset 40000 structures | fold0 (val): 7982
+13:54:15 clusters 64 | usable 40000 | dropped 0
+13:54:19 embeddings loaded from cache outputs/smiles_detector/embeddings.npz (40000, 768)
+13:54:21 train/val: 32018 / 7982 | classes: 64
+13:54:21 === RUN2 ROUND A: new configs (50 ep, cosine + warmup, label smoothing) ===
+14:04:41 [A_control_2x1024_tanh] MRR@25=0.7655 top1=0.6348 top5=0.9380 f1=0.5869 bal=0.5694 @e48 (max_epochs)
+14:10:48 [A_mlp_3x1024_tanh] MRR@25=0.7694 top1=0.6401 top5=0.9426 f1=0.5717 bal=0.5613 @e46 (max_epochs)
+14:18:07 [A_mlp_2x2048_tanh] MRR@25=0.7756 top1=0.6493 top5=0.9426 f1=0.6270 bal=0.6205 @e46 (max_epochs)
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+14:19:46 [A_mlp_2x1024_tanh_bn] early stop at epoch 30 (MRR@25 accuracy dropped 3x straight)
+14:19:46 [A_mlp_2x1024_tanh_bn] MRR@25=0.7629 top1=0.6332 top5=0.9359 f1=0.6215 bal=0.6156 @e27 (early_stop_3_consecutive_acc_drops)
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+14:21:59 [A_mlp_2x1024_relu_bn] early stop at epoch 41 (MRR@25 accuracy dropped 3x straight)
+14:21:59 [A_mlp_2x1024_relu_bn] MRR@25=0.7691 top1=0.6422 top5=0.9359 f1=0.6396 bal=0.6271 @e28 (early_stop_3_consecutive_acc_drops)
+14:24:03 [A_mlp_4x512_tanh] MRR@25=0.7550 top1=0.6216 top5=0.9334 f1=0.5150 bal=0.5057 @e50 (max_epochs)
+14:27:05 [A_mlp_2x1024_tanh_do01] MRR@25=0.7670 top1=0.6367 top5=0.9385 f1=0.5834 bal=0.5759 @e50 (max_epochs)
+14:27:05 === RUN2 ROUND B: HPO on A_mlp_2x2048_tanh ===
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+14:34:21 [B_v1] MRR@25=0.7520 top1=0.6180 top5=0.9317 f1=0.5451 bal=0.5335 @e49 (max_epochs)
+14:41:43 [B_v2] MRR@25=0.7525 top1=0.6189 top5=0.9293 f1=0.5616 bal=0.5507 @e50 (max_epochs)
+14:49:05 [B_v3] MRR@25=0.7529 top1=0.6191 top5=0.9328 f1=0.5602 bal=0.5520 @e50 (max_epochs)
+14:55:59 [B_v4] early stop at epoch 48 (MRR@25 accuracy dropped 3x straight)
+14:55:59 [B_v4] MRR@25=0.7724 top1=0.6442 top5=0.9426 f1=0.6038 bal=0.5808 @e45 (early_stop_3_consecutive_acc_drops)
+15:00:54 [B_v5] early stop at epoch 34 (MRR@25 accuracy dropped 3x straight)
+15:00:54 [B_v5] MRR@25=0.7540 top1=0.6198 top5=0.9349 f1=0.5654 bal=0.5490 @e31 (early_stop_3_consecutive_acc_drops)
+15:08:15 [B_v6] MRR@25=0.7736 top1=0.6445 top5=0.9430 f1=0.6335 bal=0.6291 @e49 (max_epochs)
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+15:16:52 [B_v7] MRR@25=0.7752 top1=0.6473 top5=0.9449 f1=0.6347 bal=0.6199 @e39 (max_epochs)
+15:24:32 [B_v8] MRR@25=0.7730 top1=0.6457 top5=0.9405 f1=0.6529 bal=0.6433 @e46 (max_epochs)
+15:32:04 [B_v9] MRR@25=0.7743 top1=0.6481 top5=0.9422 f1=0.6278 bal=0.6163 @e40 (max_epochs)
+15:41:06 [B_v10] MRR@25=0.7575 top1=0.6252 top5=0.9335 f1=0.5642 bal=0.5550 @e49 (max_epochs)
+15:47:19 [B_v11] MRR@25=0.7778 top1=0.6525 top5=0.9442 f1=0.6174 bal=0.6059 @e48 (max_epochs)
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+15:54:38 [B_v12] MRR@25=0.7625 top1=0.6304 top5=0.9379 f1=0.6213 bal=0.6158 @e50 (max_epochs)
+15:54:38 === RUN2 ROUND C: ensemble of ['B_v11', 'A_mlp_2x2048_tanh', 'B_v7'] ===
+15:54:40 ENSEMBLE MRR@25=0.7914 top1=0.6709 top5=0.9500 f1=0.6443 bal=0.6301
+15:54:40 saved V2_BEST_MODEL.pt / V2_ENSEMBLE.pt / v2_summary.json
+15:54:40 DONE

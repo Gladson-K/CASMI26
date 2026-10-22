@@ -1,0 +1,12 @@
+top-3 for ensemble: ['J_ls0.1', 'H_lr0.002_wd0.0003', 'I_bs512']
+03:35:32 40k arm: train/val40k/fullval 32018 / 7982 / 55110 | classes 64
+03:41:58 [J_ls0.1] 40k MRR@25=0.8209 @e41 (max_epochs)
+retrained J_ls0.1
+03:42:20 40k arm: train/val40k/fullval 32018 / 7982 / 55110 | classes 64
+03:48:44 [H_lr0.002_wd0.0003] 40k MRR@25=0.8200 @e47 (max_epochs)
+retrained H_lr0.002_wd0.0003
+03:49:29 40k arm: train/val40k/fullval 32018 / 7982 / 55110 | classes 64
+03:57:09 [I_bs512] 40k MRR@25=0.8230 @e47 (max_epochs)
+retrained I_bs512
+ENSEMBLE fullval {'mrr25_from_scores': 0.8320856134853872, 'top1': 0.71727454182544, 'top5': 0.9825984394846671}
+saved V3_BEST.pt / V3_TOP3_ENS.pt / v3_summary.json

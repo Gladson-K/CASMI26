@@ -1,0 +1,56 @@
+project:
+  name: enveda-casmi26
+  seed: 42
+  num_threads: 4
+paths:
+  data_root: ./data
+  competition_dir: ./data/competition
+  benchmark_dir: ./data/benchmark
+  coconut_dir: ./data/coconut
+  gnps_dir: ./data/gnps
+  massbank_dir: ./data/massbank
+  cache_dir: ./cache
+  output_dir: ./outputs
+  nas_db: ./outputs/nas_cpu_10h.sqlite3
+  repo_dir: ./repos
+  model_dir: ./models
+download:
+  competition: enveda-CASMI26-molecule-id-mass-spectra
+  benchmark_dataset: dmitriigluzdov/casmi26-natural-product-panel-benchmark
+  coconut_url: https://coconut.naturalproducts.net/download/coconut_sdf_2d_lite-10-2026.zip
+  gnps_mgf_url: https://external.gnps2.org/gnpslibrary/GNPS-LIBRARY.mgf
+  dreams_repo: https://github.com/pluskal-lab/DreaMS.git
+  spec2vec_repo: https://github.com/iomega/spec2vec.git
+  matchms_repo: https://github.com/matchms/matchms.git
+  msbuddy_repo: https://github.com/CompMS-MS2/MSBuddy.git
+preprocess:
+  min_peaks: 3
+  max_peaks: 256
+  mz_min: 0.0
+  mz_max: 2000.0
+  intensity_floor: 0.002
+  intensity_power: 1.0
+  normalize_intensity: true
+nas:
+  profile: cpu_10h
+  timeout_seconds: 36000
+  n_trials: 100000
+  n_startup_trials: 40
+  top_k: 10
+  validation_fraction: 0.2
+  max_validation_molecules: 500
+  max_library_spectra: 100000
+  max_candidates_per_query: 1000
+  sampler: tpe
+  pruner: median
+  storage: sqlite:///outputs/nas_cpu_10h.sqlite3
+  heartbeat_seconds: 300
+  gc_after_trial: true
+retrieval:
+  top_k: 25
+  precursor_tolerance_ppm: 10.0
+  mz_tolerance_da: 0.01
+  aggregation: max
+  score_method: entropy_cosine
+submission:
+  top_n: 25

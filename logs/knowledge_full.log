@@ -1,0 +1,23 @@
+full val 55110 | train 220408 | classes 64
+ensemble members: ['F2_lr3e3_wd0_bs1024', 'S_F2_lr3e3_wd0_bs1024_seed43', 'S_F2_lr3e3_wd0_bs1024_seed44']
+FULL model (3-seed ens) MRR@25 0.8746
+prototype-fingerprint chemist prior MRR@25 0.9252
+cached probs/chem -> fusion_cache.npz
+  feature fusion eps=0.02: 0.8754
+  feature fusion eps=0.05: 0.8763
+  feature fusion eps=0.1: 0.8780
+  feature fusion eps=0.2: 0.8814
+  feature fusion eps=0.3: 0.8850
+  feature fusion eps=0.5: 0.8941
+  feature fusion eps=0.8: 0.9159
+  z(log p) + 0.05 * z(candidate chemist prior): 0.8746
+  z(log p) + 0.1 * z(candidate chemist prior): 0.8742
+  z(log p) + 0.25 * z(candidate chemist prior): 0.8716
+  z(log p) + 0.5 * z(candidate chemist prior): 0.8633
+  z(log p) + 1.0 * z(candidate chemist prior): 0.8329
+  z(log p) + 2.0 * z(candidate chemist prior): 0.7732
+  feature(eps=0.8) + candidate(lam=0.05): 0.9113
+  feature(eps=0.8) + candidate(lam=0.1): 0.8822
+  feature(eps=0.8) + candidate(lam=0.25): 0.8074
+  feature(eps=0.8) + candidate(lam=0.5): 0.6706
+saved outputs/smiles_detector_full/knowledge_fusion_full.json

@@ -1,0 +1,22 @@
+13:21:40 dataset 40000 structures | fold0 (val): 7982
+13:23:08 clusters 64 | usable 40000 | dropped 0
+13:23:16 embeddings loaded from cache outputs/smiles_detector/embeddings.npz (40000, 768)
+13:23:18 train/val: 32018 / 7982 | classes: 64
+13:23:19 === RUN2 ROUND A: new configs (50 ep, cosine + warmup, label smoothing) ===
+13:26:36 [A_control_2x1024_tanh] best acc=0.6348 top5=0.9380 f1=0.5869 bal=0.5694 @e48 (max_epochs)
+13:31:19 [A_mlp_3x1024_tanh] best acc=0.6401 top5=0.9426 f1=0.5717 bal=0.5613 @e46 (max_epochs)
+13:38:53 [A_mlp_2x2048_tanh] best acc=0.6493 top5=0.9426 f1=0.6270 bal=0.6205 @e46 (max_epochs)
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+13:41:19 [A_mlp_2x1024_tanh_bn] early stop at epoch 44 (val acc dropped 3x straight)
+13:41:19 [A_mlp_2x1024_tanh_bn] best acc=0.6341 top5=0.9347 f1=0.5867 bal=0.5755 @e24 (early_stop_3_consecutive_acc_drops)
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+13:44:05 [A_mlp_2x1024_relu_bn] best acc=0.6431 top5=0.9337 f1=0.6509 bal=0.6378 @e30 (max_epochs)
+13:46:14 [A_mlp_4x512_tanh] best acc=0.6216 top5=0.9334 f1=0.5150 bal=0.5057 @e50 (max_epochs)

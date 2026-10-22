@@ -1,0 +1,2 @@
+13:49:31 full arm capped at 12 epochs, recipe {'lr': 0.002, 'wd': 0.0003, 'bs': 1024, 'ls': 0.1}
+13:49:31 full arm: train/val 220408 / 55110 | classes 64

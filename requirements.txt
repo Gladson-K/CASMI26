@@ -1,0 +1,20 @@
+# Core CPU environment; torch is installed separately from the official CPU wheel index.
+numpy>=1.26,<3
+pandas>=2.2,<3
+pyarrow>=16
+scipy>=1.13
+scikit-learn>=1.5
+rdkit>=2024.3.1
+optuna>=4.0
+PyYAML>=6
+requests>=2.32
+tqdm>=4.66
+joblib>=1.4
+matchms>=0.27
+numba>=0.60
+huggingface_hub>=0.25
+kaggle>=1.6
+kagglehub>=0.3
+msbuddy>=0.2
+lightgbm>=4.5
+pytest>=8

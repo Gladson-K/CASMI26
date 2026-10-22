@@ -1,0 +1,19 @@
+                         tag  epochs_run  best_epoch  val_mrr25  val_top1
+S_F2_lr3e3_wd0_bs1024_seed44          50          50   0.868938  0.772981
+         F2_lr3e3_wd0_bs1024          50          48   0.867576  0.771548
+S_F2_lr3e3_wd0_bs1024_seed43          50          50   0.866703  0.769552
+       F3_lr1e3_wd1e2_bs1024          50          48   0.850386  0.744747
+       F1_lr1e3_wd1e3_bs1024          50          47   0.849175  0.742588
+       F4_lr5e4_wd1e3_bs2048          50          50   0.844158  0.735130
+retraining F2 + 2 seeds for the ensemble...
+14:24:27 full arm: train/val 220408 / 55110 | classes 64
+15:52:10 [F2_lr3e3_wd0_bs1024] 40k MRR@25=0.8676 @e48 (max_epochs)
+retrained F2_lr3e3_wd0_bs1024
+15:52:10 full arm: train/val 220408 / 55110 | classes 64
+16:47:00 [S_F2_lr3e3_wd0_bs1024_seed43] 40k MRR@25=0.8667 @e50 (max_epochs)
+retrained S_F2_lr3e3_wd0_bs1024_seed43
+16:47:01 full arm: train/val 220408 / 55110 | classes 64
+17:38:30 [S_F2_lr3e3_wd0_bs1024_seed44] 40k MRR@25=0.8689 @e50 (max_epochs)
+retrained S_F2_lr3e3_wd0_bs1024_seed44
+FULL 3-SEED ENSEMBLE {'mrr25_from_scores': 0.8745532262002983, 'top1': 0.7820903647250953, 'top5': 0.9919252404282345}
+saved FULL_BEST.pt / FULL_3SEED_ENS.pt / full_summary.json

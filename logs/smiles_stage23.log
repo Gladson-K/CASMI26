@@ -1,0 +1,41 @@
+12:37:33 dataset 40000 structures | fold0 (val): 7982
+12:38:27 clusters 64 | usable 40000 | dropped 0
+12:38:30 embeddings loaded from cache outputs/smiles_detector/embeddings.npz (40000, 768)
+12:38:31 train/val: 32018 / 7982 | classes: 64
+12:38:32 === STAGE 2: best config mlp_2x1024_tanh up to 50 epochs, stop after 3 straight acc drops ===
+12:39:26 [mlp_2x1024_tanh] early stop at epoch 22 (val acc dropped 3x in a row)
+12:39:26 stop_reason=early_stop_3_consecutive_acc_drops | best val acc 0.6393 @ epoch 19 | 54s
+12:39:26 saved outputs/smiles_detector/checkpoints/stage2_mlp_2x1024_tanh_best.pt
+12:39:26 saved outputs/smiles_detector/checkpoints/stage2_mlp_2x1024_tanh_early_stopped_SEPARATE.pt
+12:39:26 last epochs: e13=0.6146 e14=0.6268 e15=0.6272 e16=0.6294 e17=0.6292 e18=0.6308 e19=0.6393 e20=0.6379 e21=0.6368 e22=0.6270
+12:39:26 DONE
+12:42:00 dataset 40000 structures | fold0 (val): 7982
+12:42:53 clusters 64 | usable 40000 | dropped 0
+12:42:56 embeddings loaded from cache outputs/smiles_detector/embeddings.npz (40000, 768)
+12:42:57 train/val: 32018 / 7982 | classes: 64
+12:42:57 === STAGE 3: hyperparameter search on config mlp_2x1024_tanh ===
+12:44:12 [hpo1] early stop at epoch 29 (val acc dropped 3x in a row)
+12:44:12   v1 lr=3e-04 wd=1e-04 bs= 512 -> best 0.6445 @ e24 (early_stop_3_consecutive_acc_drops)
+12:46:13   v2 lr=1e-03 wd=0e+00 bs= 512 -> best 0.6542 @ e49 (max_epochs)
+12:46:57 [hpo3] early stop at epoch 17 (val acc dropped 3x in a row)
+12:46:57   v3 lr=1e-03 wd=1e-02 bs= 512 -> best 0.6307 @ e12 (early_stop_3_consecutive_acc_drops)
+12:48:46 [hpo4] early stop at epoch 41 (val acc dropped 3x in a row)
+12:48:46   v4 lr=3e-03 wd=1e-04 bs= 512 -> best 0.6265 @ e35 (early_stop_3_consecutive_acc_drops)
+12:50:16 [hpo5] early stop at epoch 25 (val acc dropped 3x in a row)
+12:50:16   v5 lr=1e-03 wd=1e-04 bs= 256 -> best 0.6324 @ e22 (early_stop_3_consecutive_acc_drops)
+12:53:04   v6 lr=3e-04 wd=1e-02 bs= 256 -> best 0.6562 @ e47 (max_epochs)
+12:55:51   v7 lr=3e-03 wd=0e+00 bs= 256 -> best 0.5655 @ e25 (max_epochs)
+12:57:54   v8 lr=5e-04 wd=1e-03 bs=1024 -> best 0.6595 @ e42 (max_epochs)
+12:57:54 STAGE 3 RESULT (ranked):
+ variant     lr  weight_decay  batch  best_val_acc  best_epoch  epochs_run                        stop_reason  secs
+       8 0.0005        0.0010   1024      0.659484          42          50                         max_epochs 122.9
+       6 0.0003        0.0100    256      0.656227          47          50                         max_epochs 168.7
+       2 0.0010        0.0000    512      0.654222          49          50                         max_epochs 121.7
+       1 0.0003        0.0001    512      0.644450          24          29 early_stop_3_consecutive_acc_drops  74.5
+       5 0.0010        0.0001    256      0.632423          22          25 early_stop_3_consecutive_acc_drops  89.9
+       3 0.0010        0.0100    512      0.630669          12          17 early_stop_3_consecutive_acc_drops  43.1
+       4 0.0030        0.0001    512      0.626535          35          41 early_stop_3_consecutive_acc_drops 109.1
+       7 0.0030        0.0000    256      0.565522          25          50                         max_epochs 166.1
+12:57:54 saved outputs/smiles_detector/checkpoints/BEST_MODEL_final.pt
+12:57:54 BEST MODEL: val_acc=0.6595 hp={'lr': 0.0005, 'weight_decay': 0.001, 'batch': 1024} -> outputs/smiles_detector/checkpoints/BEST_MODEL_final.pt
+12:57:54 DONE

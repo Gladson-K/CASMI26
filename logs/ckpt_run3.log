@@ -1,0 +1,22 @@
+full taxonomy: val 55110 classes 64
+{'arm': 'run3-v3-40k-best', 'checkpoint': 'V3_BEST.pt', 'n_val': 55110, 'label_space': 'full-64', 'mrr25': 0.8238647721328616, 'top1': 0.7050081654872073, 'top5': 0.9813282525857376}
+{'arm': 'run3-v3-40k-top3-ens', 'checkpoint': 'V3_TOP3_ENS.pt', 'n_val': 55110, 'label_space': 'full-64', 'mrr25': 0.8320856292697155, 'top1': 0.71727454182544, 'top5': 0.9825984394846671}
+{'arm': 'run3-full-220k-best', 'checkpoint': 'FULL_BEST.pt', 'n_val': 55110, 'label_space': 'full-64', 'mrr25': 0.8675755374770417, 'top1': 0.7715478134639812, 'top5': 0.9904917437851569}
+{'arm': 'run3-full-220k-3seed-ens', 'checkpoint': 'FULL_3SEED_ENS.pt', 'n_val': 55110, 'label_space': 'full-64', 'mrr25': 0.8745532260065811, 'top1': 0.7820903647250953, 'top5': 0.9919252404282345}
+{'arm': 'run3-full-220k-3seed-ens+chemist-prior', 'checkpoint': 'fusion z(log p)+10 z(chem)', 'n_val': 55110, 'label_space': 'full-64', 'mrr25': 0.9365877552254798, 'top1': 0.8829613500272183, 'top5': 0.9990382870622392}
+19:08:19 dataset 40000 structures | fold0 (val): 7982
+19:09:46 clusters 64 | usable 40000 | dropped 0
+19:09:50 embeddings loaded from cache outputs/smiles_detector/embeddings.npz (40000, 768)
+40k taxonomy: val 7982 classes 64
+{'arm': 'run2-best', 'checkpoint': 'V2_BEST_MODEL.pt', 'n_val': 7982, 'label_space': '40k-64', 'mrr25': 0.7777783832726358, 'top1': 0.6524680531195189, 'top5': 0.9442495615134051}
+{'arm': 'run2-ensemble', 'checkpoint': 'V2_ENSEMBLE.pt', 'n_val': 7982, 'label_space': '40k-64', 'mrr25': 0.7913577877635251, 'top1': 0.6708844901027311, 'top5': 0.950012528188424}
+
+                                   arm                 checkpoint  n_val label_space    mrr25     top1     top5
+run3-full-220k-3seed-ens+chemist-prior fusion z(log p)+10 z(chem)  55110     full-64 0.936588 0.882961 0.999038
+              run3-full-220k-3seed-ens          FULL_3SEED_ENS.pt  55110     full-64 0.874553 0.782090 0.991925
+                   run3-full-220k-best               FULL_BEST.pt  55110     full-64 0.867576 0.771548 0.990492
+                  run3-v3-40k-top3-ens             V3_TOP3_ENS.pt  55110     full-64 0.832086 0.717275 0.982598
+                      run3-v3-40k-best                 V3_BEST.pt  55110     full-64 0.823865 0.705008 0.981328
+                         run2-ensemble             V2_ENSEMBLE.pt   7982      40k-64 0.791358 0.670884 0.950013
+                             run2-best           V2_BEST_MODEL.pt   7982      40k-64 0.777778 0.652468 0.944250
+written outputs/checkpoint_metrics_run3.csv

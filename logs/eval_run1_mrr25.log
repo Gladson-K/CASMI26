@@ -1,0 +1,20 @@
+15:59:48 dataset 40000 structures | fold0 (val): 7982
+16:00:36 clusters 64 | usable 40000 | dropped 0
+16:00:39 embeddings loaded from cache outputs/smiles_detector/embeddings.npz (40000, 768)
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+16:00:41 stage2_mlp_2x1024_tanh_best.pt {'checkpoint': 'stage2_mlp_2x1024_tanh_best.pt', 'saved_tag': '2_full_train', 'saved_metric': 0.6393, 'val_mrr25': 0.7696, 'val_top1': 0.6393, 'val_top5': 0.9419, 'val_macro_f1': 0.6145, 'val_balanced_acc': 0.6279, 'head_params': 1345088}
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+16:00:42 stage2_mlp_2x1024_tanh_early_stopped_SEPARATE.pt {'checkpoint': 'stage2_mlp_2x1024_tanh_early_stopped_SEPARATE.pt', 'saved_tag': '2_early_stopped_separate', 'saved_metric': 0.6393, 'val_mrr25': 0.7696, 'val_top1': 0.6393, 'val_top5': 0.9419, 'val_macro_f1': 0.6145, 'val_balanced_acc': 0.6279, 'head_params': 1345088}
+/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/sklearn/metrics/_classification.py:2939: UserWarning: y_pred contains classes not in y_true
+  warnings.warn("y_pred contains classes not in y_true")
+16:00:42 BEST_MODEL_final.pt {'checkpoint': 'BEST_MODEL_final.pt', 'saved_tag': '3_hpo_best', 'saved_metric': 0.6595, 'val_mrr25': 0.783, 'val_top1': 0.6595, 'val_top5': 0.9473, 'val_macro_f1': 0.652, 'val_balanced_acc': 0.6534, 'head_params': 1345088}
+16:00:42 V2_BEST_MODEL.pt {'checkpoint': 'V2_BEST_MODEL.pt', 'saved_tag': 'B_v11', 'saved_metric': 0.7778, 'val_mrr25': 0.7778, 'val_top1': 0.6525, 'val_top5': 0.9442, 'val_macro_f1': 0.6174, 'val_balanced_acc': 0.6059, 'head_params': 3738688}
+
+                                      checkpoint                saved_tag  saved_metric  val_mrr25  val_top1  val_top5  val_macro_f1  val_balanced_acc  head_params
+                  stage2_mlp_2x1024_tanh_best.pt             2_full_train        0.6393     0.7696    0.6393    0.9419        0.6145            0.6279      1345088
+stage2_mlp_2x1024_tanh_early_stopped_SEPARATE.pt 2_early_stopped_separate        0.6393     0.7696    0.6393    0.9419        0.6145            0.6279      1345088
+                             BEST_MODEL_final.pt               3_hpo_best        0.6595     0.7830    0.6595    0.9473        0.6520            0.6534      1345088
+                                V2_BEST_MODEL.pt                    B_v11        0.7778     0.7778    0.6525    0.9442        0.6174            0.6059      3738688
+16:00:42 written outputs/smiles_detector/checkpoint_metrics.csv

@@ -1,0 +1,42 @@
+10:52:10 dataset 40000 structures | fold0 (val): 7982
+10:53:16 clusters 64 | usable 40000 | dropped 0
+10:53:16 tokenising + embedding 40000 SMILES with frozen DeepChem/ChemBERTa-100M-MLM
+Loading weights:   0%|          | 0/197 [00:00<?, ?it/s]Loading weights:  45%|████▌     | 89/197 [00:00<00:00, 883.21it/s]Loading weights: 100%|██████████| 197/197 [00:00<00:00, 1193.26it/s]
+[transformers] [1mRobertaModel LOAD REPORT[0m from: DeepChem/ChemBERTa-100M-MLM
+Key                       | Status     | 
+--------------------------+------------+-
+lm_head.bias              | UNEXPECTED | 
+lm_head.dense.bias        | UNEXPECTED | 
+lm_head.dense.weight      | UNEXPECTED | 
+lm_head.layer_norm.bias   | UNEXPECTED | 
+lm_head.layer_norm.weight | UNEXPECTED | 
+pooler.dense.bias         | MISSING    | 
+pooler.dense.weight       | MISSING    | 
+
+Notes:
+- UNEXPECTED:	can be ignored when loading from different task/architecture; not ok if you expect identical arch.
+- MISSING:	those params were newly initialized because missing from the checkpoint. Consider training on your downstream task.
+10:53:38   64/40000 13s
+11:10:20   6464/40000 1015s
+11:26:06   12864/40000 1962s
+11:42:04   19264/40000 2920s
+11:58:07   25664/40000 3883s
+12:13:38   32064/40000 4814s
+12:29:17   38464/40000 5753s
+12:33:24 embeddings done (40000, 768) 6000s
+12:33:24 train/val: 32018 / 7982 | classes: 64
+12:33:24 === STAGE 1: 3-epoch algorithm search over 5 head configs ===
+12:33:26   linear             accs=[0.3132 0.3815 0.4250] best=0.4250
+12:33:28   mlp_1x256          accs=[0.3183 0.4203 0.4599] best=0.4599
+12:33:31   mlp_2x512          accs=[0.3290 0.4318 0.4739] best=0.4739
+12:33:36   mlp_2x512_drop     accs=[0.3044 0.4025 0.4608] best=0.4608
+12:33:43   mlp_2x1024_tanh    accs=[0.4102 0.5005 0.5381] best=0.5381
+12:33:44 STAGE 1 RESULT (ranked):
+         config  val_acc_epoch3  best_val_acc  best_epoch  secs                 accs
+mlp_2x1024_tanh        0.538086      0.538086           3   7.5 0.4102 0.5005 0.5381
+      mlp_2x512        0.473941      0.473941           3   3.2 0.3290 0.4318 0.4739
+ mlp_2x512_drop        0.460787      0.460787           3   4.6 0.3044 0.4025 0.4608
+      mlp_1x256        0.459910      0.459910           3   1.5 0.3183 0.4203 0.4599
+         linear        0.424956      0.424956           3   2.3 0.3132 0.3815 0.4250
+12:33:44 winner: mlp_2x1024_tanh
+12:33:44 DONE

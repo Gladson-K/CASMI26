@@ -1,0 +1,51 @@
+architecture: h256x256x128x64-leaky_relu-d0.1-nobn-deep
+    epoch   1 train=0.4803 val=0.3238 rate_r2=0.7312
+    epoch   2 train=0.3050 val=0.2713 rate_r2=0.7677
+    epoch   3 train=0.2819 val=0.2516 rate_r2=0.7819
+    epoch   4 train=0.2674 val=0.2648 rate_r2=0.7657
+    epoch   5 train=0.2642 val=0.2583 rate_r2=0.7712
+    epoch   6 train=0.2509 val=0.2653 rate_r2=0.7608
+    epoch   7 train=0.2575 val=0.2485 rate_r2=0.7775
+    epoch   8 train=0.2465 val=0.2540 rate_r2=0.7715
+    epoch   9 train=0.2417 val=0.2484 rate_r2=0.7770
+    epoch  10 train=0.2488 val=0.2714 rate_r2=0.7525
+    epoch  11 train=0.2425 val=0.2484 rate_r2=0.7762
+    epoch  12 train=0.2364 val=0.2573 rate_r2=0.7668
+    epoch  13 train=0.2330 val=0.2496 rate_r2=0.7753
+    epoch  14 train=0.2279 val=0.2597 rate_r2=0.7637
+    epoch  15 train=0.2255 val=0.2509 rate_r2=0.7730
+    epoch  16 train=0.2258 val=0.2778 rate_r2=0.7468
+    epoch  17 train=0.2272 val=0.2523 rate_r2=0.7714
+    epoch  18 train=0.2231 val=0.2582 rate_r2=0.7652
+    epoch  19 train=0.2186 val=0.2667 rate_r2=0.7556
+    epoch  20 train=0.2167 val=0.2638 rate_r2=0.7587
+    epoch  21 train=0.2198 val=0.2664 rate_r2=0.7559
+    epoch  22 train=0.2171 val=0.2522 rate_r2=0.7711
+    epoch  23 train=0.2121 val=0.2585 rate_r2=0.7649
+    epoch  24 train=0.2099 val=0.2739 rate_r2=0.7477
+
+=== TEST METRICS ===
+{
+  "M_real": {
+    "mse": 0.03771115251848285,
+    "mae": 0.1263278956631306
+  },
+  "M_imag": {
+    "mse": 0.037803068976279046,
+    "mae": 0.12674574501234778
+  },
+  "M": {
+    "mse": 0.037757110747380945,
+    "n_mse": 0.4522012870937611,
+    "r2": 0.5477510237122302,
+    "cos": 0.7441286378015926
+  },
+  "rate": {
+    "mse": 30.771420063602758,
+    "mae": 4.015084177551876,
+    "r2": 0.7937978986259037
+  },
+  "n_samples": 503,
+  "parameters": 997825
+}
+saved checkpoints/mimo64_nas_best_run3.pt and checkpoints/mimo64_nas_best_run3.metrics.json

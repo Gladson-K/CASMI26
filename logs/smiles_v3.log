@@ -1,0 +1,31 @@
+02:05:14 40k arm: train/val40k/fullval 32018 / 7982 / 55110 | classes 64
+02:05:15 resuming with 15 completed variants: ['H_lr0.0005_wd0.0003', 'H_lr0.0005_wd0.001', 'H_lr0.0005_wd0.003', 'H_lr0.00075_wd0.0003', 'H_lr0.00075_wd0.001', 'H_lr0.00075_wd0.003', 'H_lr0.0015_wd0.0003', 'H_lr0.0015_wd0.001', 'H_lr0.0015_wd0.003', 'H_lr0.001_wd0.0003', 'H_lr0.001_wd0.001', 'H_lr0.001_wd0.003', 'H_lr0.002_wd0.0003', 'H_lr0.002_wd0.001', 'H_lr0.002_wd0.003']
+02:05:15 === V3 ROUND H: lr x wd grid on 2x2048 tanh (bs1024 ls0.05) ===
+02:11:32 [H_lr0.003_wd0.0003] 40k MRR@25=0.8189 | FULLVAL MRR@25=0.8189 (torch 0.8189) top1=0.6991 @e31 (max_epochs)
+02:17:23 [H_lr0.003_wd0.001] early stop at epoch 48 (MRR@25 dropped 3x straight)
+02:17:28 [H_lr0.003_wd0.001] 40k MRR@25=0.8208 | FULLVAL MRR@25=0.8199 (torch 0.8199) top1=0.7005 @e45 (early_stop_3_consecutive_mrr25_drops)
+02:20:10 [H_lr0.003_wd0.003] early stop at epoch 22 (MRR@25 dropped 3x straight)
+02:20:13 [H_lr0.003_wd0.003] 40k MRR@25=0.7996 | FULLVAL MRR@25=0.8025 (torch 0.8025) top1=0.6748 @e19 (early_stop_3_consecutive_mrr25_drops)
+02:20:13 === V3 ROUND I: batch sweep at lr 0.002 wd 0.0003 ===
+02:27:34 [I_bs512] 40k MRR@25=0.8230 | FULLVAL MRR@25=0.8236 (torch 0.8236) top1=0.7045 @e47 (max_epochs)
+02:33:20 [I_bs2048] 40k MRR@25=0.8181 | FULLVAL MRR@25=0.8198 (torch 0.8198) top1=0.6994 @e45 (max_epochs)
+02:33:21 === V3 ROUND J: label-smoothing sweep at lr 0.002 wd 0.0003 bs 1024 ===
+02:39:40 [J_ls0] 40k MRR@25=0.8186 | FULLVAL MRR@25=0.8202 (torch 0.8202) top1=0.6991 @e49 (max_epochs)
+02:45:57 [J_ls0.02] 40k MRR@25=0.8188 | FULLVAL MRR@25=0.8229 (torch 0.8229) top1=0.7036 @e48 (max_epochs)
+02:53:17 [J_ls0.1] 40k MRR@25=0.8209 | FULLVAL MRR@25=0.8239 (torch 0.8239) top1=0.7050 @e41 (max_epochs)
+02:53:17 === V3 ROUND S: 3-seed ensemble of J_ls0.1 {'lr': 0.002, 'wd': 0.0003, 'bs': 1024, 'ls': 0.1} ===
+03:02:58 [S_J_ls0.1_seed43] 40k MRR@25=0.8195 | FULLVAL MRR@25=0.8213 (torch 0.8213) top1=0.7009 @e44 (max_epochs)
+03:14:40 [S_J_ls0.1_seed44] 40k MRR@25=0.8180 | FULLVAL MRR@25=0.8187 (torch 0.8187) top1=0.6977 @e46 (max_epochs)
+Traceback (most recent call last):
+  File "/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/scripts/tune_smiles_detector_v3.py", line 411, in <module>
+    main()
+  File "/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/scripts/tune_smiles_detector_v3.py", line 381, in main
+    seed_ens = ensemble_eval(seed_members, Xfull, yfull, '3seed_fullval') if seed_members else {}
+               ^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
+  File "/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/scripts/tune_smiles_detector_v3.py", line 221, in ensemble_eval
+    m.load_state_dict(state)
+  File "/mnt/d/Workspace_Glad/Projects/casmi26_upgrade/.venv/lib/python3.12/site-packages/torch/nn/modules/module.py", line 2643, in load_state_dict
+    raise RuntimeError(
+RuntimeError: Error(s) in loading state_dict for Head:
+	size mismatch for net.4.weight: copying a param with shape torch.Size([64, 1024]) from checkpoint, the shape in current model is torch.Size([62, 1024]).
+	size mismatch for net.4.bias: copying a param with shape torch.Size([64]) from checkpoint, the shape in current model is torch.Size([62]).
