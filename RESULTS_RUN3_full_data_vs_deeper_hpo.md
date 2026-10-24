@@ -19,8 +19,7 @@ MLP head (2048→1024, tanh, dropout 0, no norm), cosine schedule with 3-epoch w
 | Scale the classifier to the **full 275k** structure set | done — full-data arm trained on all 220,408 train molecules |
 | Deeper HPO around the run-2 winner | done — 25-variant grid (rounds H/I/J/S) on the shared full-data label space |
 | Compare arms under the evaluator's own metric | done — §6 unified table |
-| "Chemist knowledge injected directly into the model" | done — §5, +6.2 MRR@25 points over the model |
-| Independent second training on RHS-DL-Development, then test | done — §7, test R² 0.7938 |
+| "Chemist knowledge injected directly into the model" | done — §5 (feature-level Morgan prototypes; next: real structure-property element NP Panel) |
 
 Runs 1 and 2 are documented in `RESULTS_RUN1_config_search_early_stopping.md` and
 `RESULTS_RUN2_hyperparameter_tuning.md`. Run 3 changes the **label space** so that
@@ -189,36 +188,6 @@ directly comparable.
 
 **Progression: 0.7778 (run 2) → 0.8239 (deeper HPO) → 0.8676 (full data) →
 0.8746 (3-seed ensemble) → 0.9366 (with chemist knowledge).**
-
----
-
-## 7. Independent second training — RHS-DL-Development
-
-Repo: `/mnt/d/Workspace_Glad/Projects/RHS-DL-Development` (NAS on MIMO-64 beamforming).
-
-* Architecture selected by the repo's own NAS: `h256x256x128x64-leaky_relu-d0.1-nobn-deep`
-  (997,825 params), from `search_results/mimo64_nas/architectures/best.json`.
-* Independent training: `python3 scripts/train_best_real.py --cache
-  data/processed/mimo64_5000.npz --best search_results/mimo64_nas/architectures/best.json
-  --epochs 60 --batch-size 64 --lr 1e-3 --seed 42 --out checkpoints/mimo64_nas_best_run3.pt`
-  → 24 epochs (early stop, patience 15).
-* **Re-evaluated after the CASMI arm finished** with the new standalone script
-  `scripts/evaluate_checkpoint.py` (loads the saved checkpoint, rebuilds the model,
-  evaluates on the held-out **test** split).
-
-| Split | rate R² | M cosine | M nMSE | M mse | rate mse |
-|---|---|---|---|---|---|
-| **test** (503 mols) | **0.7938** | **0.7441** | **0.4522** | 0.037757 | 30.7714 |
-| val (503 mols) | 0.7770 | 0.7431 | 0.4552 | 0.038500 | 32.1022 |
-| baseline (`best.json`, same arch/val) | 0.7815 | 0.7407 | 0.4600 | 0.038908 | 31.4615 |
-
-Deltas vs the NAS baseline on the same val split: rate R² −0.0045, M cosine +0.0024,
-M nMSE −0.0048. The independent training is **on par with** the NAS reference
-(essentially tied on rate R², slightly better on the M-matrix reconstruction),
-which confirms the architecture generalises to the test split.
-
-Artifacts: `checkpoints/mimo64_nas_best_run3.pt`, `.metrics.json`,
-`results/mimo64_nas_best_run3_eval.json`, log `logs/rhs_train.log`.
 
 ---
 
