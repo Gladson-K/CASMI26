@@ -1,0 +1,37 @@
+full val 55110 | train 220408 | classes 64
+ensemble: ['F2_lr3e3_wd0_bs1024', 'S_F2_lr3e3_wd0_bs1024_seed43', 'S_F2_lr3e3_wd0_bs1024_seed44']
+BASE ensemble MRR@25 0.8746
+NP panel stats: {'stats': {'n_panel': 250, 'mean': 3.839339825131212, 'std': 0.46247400177544057}, 'n_mapped': 250}
+candidate prior stats: -1.5 0.0
+  z(log p)+0.01*z(NP_panel_candidate): 0.8746
+  z(log p)+0.05*z(NP_panel_candidate): 0.8746
+  z(log p)+0.1*z(NP_panel_candidate): 0.8746
+  z(log p)+0.25*z(NP_panel_candidate): 0.8746
+  z(log p)+0.5*z(NP_panel_candidate): 0.8746
+  z(log p)+1.0*z(NP_panel_candidate): 0.8746
+  z(log p)+2.0*z(NP_panel_candidate): 0.8746
+  z(log p)+5.0*z(NP_panel_candidate): 0.8746
+saved np_panel_candidate_prior_results.json
+{
+  "base_ensemble_mrr25": 0.8745532260065811,
+  "np_panel_stats": {
+    "stats": {
+      "n_panel": 250,
+      "mean": 3.839339825131212,
+      "std": 0.46247400177544057
+    },
+    "n_mapped": 250
+  },
+  "cand_np_panel_lam_0.01": 0.8745532260065811,
+  "cand_np_panel_lam_0.05": 0.8745532260065811,
+  "cand_np_panel_lam_0.1": 0.8745532260065811,
+  "cand_np_panel_lam_0.25": 0.8745532260065811,
+  "cand_np_panel_lam_0.5": 0.8745532260065811,
+  "cand_np_panel_lam_1.0": 0.8745532260065811,
+  "cand_np_panel_lam_2.0": 0.8745532260065811,
+  "cand_np_panel_lam_5.0": 0.8745532260065811,
+  "proto_lam0.01_np_lam0.01": 0.8749585574064129,
+  "proto_lam0.01_np_lam0.05": 0.8749585574064129,
+  "proto_lam0.01_np_lam0.1": 0.8749585574064129,
+  "proto_lam0.01_np_lam0.25": 0.8749585574064129,
+  "proto_lam0.01_n
