@@ -78,15 +78,15 @@ def main():
         print(rows[-1], flush=True)
 
     # v3 (40k-trained, full-data taxonomy)
-    ck = torch.load(f'{v3.OUT3}/checkpoints/V3_BEST.pt', map_location='cpu', weights_only=False)
+    ck = torch.load(f'{v3.OUT3}/checkpoints/V3_BEST.pt', map_location='cpu', weights_only=True)
     eval_states([ck['state_dict']], [ck['head_config']], 'run3-v3-40k-best', 'V3_BEST.pt')
-    ck = torch.load(f'{v3.OUT3}/checkpoints/V3_TOP3_ENS.pt', map_location='cpu', weights_only=False)
+    ck = torch.load(f'{v3.OUT3}/checkpoints/V3_TOP3_ENS.pt', map_location='cpu', weights_only=True)
     eval_states(ck['states'], ck['configs'], 'run3-v3-40k-top3-ens', 'V3_TOP3_ENS.pt')
 
     # full-data arm
-    ck = torch.load(f'{v3.FULLOUT}/checkpoints/FULL_BEST.pt', map_location='cpu', weights_only=False)
+    ck = torch.load(f'{v3.FULLOUT}/checkpoints/FULL_BEST.pt', map_location='cpu', weights_only=True)
     eval_states([ck['state_dict']], [ck['head_config']], 'run3-full-220k-best', 'FULL_BEST.pt')
-    ck = torch.load(f'{v3.FULLOUT}/checkpoints/FULL_3SEED_ENS.pt', map_location='cpu', weights_only=False)
+    ck = torch.load(f'{v3.FULLOUT}/checkpoints/FULL_3SEED_ENS.pt', map_location='cpu', weights_only=True)
     eval_states(ck['states'], ck['configs'], 'run3-full-220k-3seed-ens', 'FULL_3SEED_ENS.pt')
 
     # chemist-knowledge fusion on the full-data ensemble
@@ -128,7 +128,7 @@ def main():
                       (f'{base.OUT}/checkpoints/V2_ENSEMBLE.pt', 'run2-ensemble')]:
         if not os.path.exists(path):
             continue
-        ck = torch.load(path, map_location='cpu', weights_only=False)
+        ck = torch.load(path, map_location='cpu', weights_only=True)
         if 'states' in ck:
             eval40(ck['states'], ck.get('configs', [ck.get('head_config')] * len(ck['states'])),
                    tag, os.path.basename(path))

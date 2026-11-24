@@ -63,7 +63,7 @@ def main():
     print(f'full val {n_val} | train {len(tr_rows)} | classes {n_cls}', flush=True)
 
     # ---------- model posteriors (3-seed ensemble), streamed ----------
-    ck = torch.load(f'{OUTF}/checkpoints/FULL_3SEED_ENS.pt', map_location='cpu', weights_only=False)
+    ck = torch.load(f'{OUTF}/checkpoints/FULL_3SEED_ENS.pt', map_location='cpu', weights_only=True)
     models = []
     for state, cfg in zip(ck['states'], ck['configs']):
         cfg = dict(cfg)

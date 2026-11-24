@@ -53,7 +53,7 @@ def main():
     n_val = len(yva)
     print('val', n_val, flush=True)
 
-    ck = torch.load(f'{OUTF}/checkpoints/FULL_3SEED_ENS.pt', map_location='cpu', weights_only=False)
+    ck = torch.load(f'{OUTF}/checkpoints/FULL_3SEED_ENS.pt', map_location='cpu', weights_only=True)
     models = []
     for state, cfg in zip(ck['states'], ck['configs']):
         cfg = dict(cfg); cfg.setdefault('norm','none')

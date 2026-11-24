@@ -43,7 +43,7 @@ def main():
     tr = is_train[good]
     Xtr, ytr, Xva, yva = base.tensorize(emb, y, tr)
     del emb, ytr, Xtr
-    c = torch.load('outputs/smiles_detector/checkpoints/V2_BEST_MODEL.pt', map_location='cpu', weights_only=False)
+    c = torch.load('outputs/smiles_detector/checkpoints/V2_BEST_MODEL.pt', map_location='cpu', weights_only=True)
     cfg = dict(c['head_config']); cfg.setdefault('norm', 'none')
     m = v2.Head(Xva.shape[1], int(y.max()) + 1, cfg)
     m.load_state_dict(c['state_dict']); m.eval()

@@ -31,7 +31,7 @@ def main():
     _, _, Xva, yva = base.tensorize(emb, y, tr)
     rows = []
     for path in args.ckpts:
-        c = torch.load(path, map_location='cpu', weights_only=False)
+        c = torch.load(path, map_location='cpu', weights_only=True)
         cfg = dict(c['head_config'])
         cfg.setdefault('norm', 'none')
         model = Head(Xva.shape[1], int(y.max()) + 1, cfg)
